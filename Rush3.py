@@ -13,8 +13,6 @@ castle =  pygame.image.load("castle.png")
 coin =  pygame.image.load("coin.png")
 sword =  pygame.image.load("sword.png")
 
-isimler = ["Ralfi", "Riva", "Semih"]
-
 #KEY: 		 R  G  B
 red = 		(255,0,0)
 green = 	(0,255,0)
