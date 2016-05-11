@@ -57,7 +57,7 @@ array.append(["NONE", 5, "C", [0], (1), (250,320), cyan])
 array.append(["NONE", 6, "AT", [0, 0], (2, 10), (210,440), brown])
 array.append(["NONE", 7, "TA", [0, 0], (3, 11), (440,20), green]),
 array.append(["NONE", 8, "TC", [0, 0], (3), (440,140), green])
-array.append(["NONE", 9, "CA", [0, 0], (14), (370,380), brown])
+array.append(["NONE", 9, "CT", [0, 0], (14), (370,380), brown])
 array.append(["NONE", 10, "AT", [0, 0], (6, 14), (370,500), brown])
 array.append(["NONE", 11, "TA", [0, 0], (7, 15), (600,80), green])
 array.append(["NONE", 12, "C", [0], (16), (640,200), pink])
@@ -91,14 +91,13 @@ def attackTo(attacking, defending):
 
 def DrawLines():
 	for item in range(len(array)):
-		
 		try:
 			for adjacent in range(len(array[item][ADJACENT])):
 				end = array[item][ADJACENT][adjacent]
 				startloc = (array[item][LOCATION][x]+35,array[item][LOCATION][y]+50)
 				endloc = (array[end][LOCATION][x]+35,array[end][LOCATION][y]+50)
 				pygame.draw.line(screen, black, startloc, endloc, 15)
-				#pygame.display.update()
+				pygame.display.update()
 		except: print "Problem while printing line", item
 
 
@@ -132,7 +131,7 @@ def Draw():
 			add += 70
 			current += 1
 			
-			#pygame.display.update()
+			pygame.display.update()
 		
 		text = font.render(str(item), 1, white)
 		textpos.x = array[item][LOCATION][x]+10
@@ -142,8 +141,8 @@ def Draw():
 #Main loop
 while True:
 	for event in pygame.event.get():
-		if event.type == pygame.QUIT:
-			exit()
+		#if event.type == pygame.QUIT:
+			#exit()
 		if event.type == KEYDOWN:
 			if event.key == K_q:
 				exit() 
