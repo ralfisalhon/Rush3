@@ -80,7 +80,7 @@ def changeOwner(number, new):
 		print number, "is now", array[number]
 		print
 	else:
-		print "Could not change owner."
+		print "Problem assigning owner"
 
 def attackTo(attacking, defending):
 	if number[defending][TYPE] == "TA" or number[defending][TYPE] == "TCA":
@@ -89,10 +89,27 @@ def attackTo(attacking, defending):
 	else: #TODO: No tower, will check for adjacent friendly block for conquering.
 		pass
 
+def DrawLines():
+	for item in range(len(array)):
+		
+		try:
+			for adjacent in range(len(array[item][ADJACENT])):
+				end = array[item][ADJACENT][adjacent]
+				startloc = (array[item][LOCATION][x]+35,array[item][LOCATION][y]+50)
+				endloc = (array[end][LOCATION][x]+35,array[end][LOCATION][y]+50)
+				pygame.draw.line(screen, black, startloc, endloc, 15)
+				#pygame.display.update()
+		except: print "Problem while printing line", item
+
+
 #Draws screen for next update
 def Draw():
 	screen.blit(background,(0,0))
+
+	DrawLines()
+
 	for item in range(len(array)):
+
 		add = 0
 		current = 0
 		for count in range(len(array[item][TYPE])):
@@ -133,3 +150,4 @@ while True:
 
 	pygame.display.update()
 	Draw()
+	time.sleep(1)
