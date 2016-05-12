@@ -3,7 +3,7 @@ import time
 from pygame.locals import *
 from random import randrange
 pygame.init()
-pygame.display.set_caption("Rush3")
+pygame.display.set_caption("Rush3") #Blitz
 
 ##########
 updates = False
@@ -13,18 +13,18 @@ castle =  pygame.image.load("castle.png")
 coin =  pygame.image.load("coin.png")
 sword =  pygame.image.load("sword.png")
 
-#KEY: 		 R  G  B
-red = 		(255,0,0)
-green = 	(0,255,0)
-blue = 		(0,0,255)
-darkBlue =	(0,0,128)
-white = 	(255,255,255)
-black = 	(0,0,0)
-pink = 		(255,200,200)
-cyan = 		(0,255,255)
-yellow = 	(255,255,0)
-brown = 	(139,69,19)
-orange = 	(255,165,0)
+#KEY:		R 		G 		B
+red = 		(255,	0,		0)
+green = 	(0,		255,	0)
+blue = 		(0,		0,		255)
+darkBlue =	(0,		0,		128)
+white = 	(255,	255,	255)
+black = 	(0,		0,		0)
+pink = 		(255,	200,	200)
+cyan = 		(0,		255,	255)
+yellow = 	(255,	255,	0)
+brown = 	(140,	70,		20)
+orange = 	(255,	165,	0)
 
 Width = 955
 Height = 640
@@ -52,29 +52,29 @@ x,y = 0,1
 
 turnOwner = "BLUE"
 
-#KEY:		 OWNER, NUM, TYPE, CARDS, ADJACENT, LOCATION, COLOUR
-array.append(["NONE", 0, "TA", [0, 0], (1, 3), (50,140), cyan])
-array.append(["BLUE", 1, "TCA", [0, 0, 0], (0, 2, 4, 5), (15,260), cyan])
-array.append(["NONE", 2, "TA", [0, 0], (1, 6), (50,380), cyan])
-array.append(["NONE", 3, "TCA", [0, 0, 0], (0, 7, 8), (210,80), green])
-array.append(["NONE", 4, "C", [0], (1), (250,200), cyan])
-array.append(["NONE", 5, "C", [0], (1), (250,320), cyan])
-array.append(["NONE", 6, "AT", [0, 0], (2, 10), (210,440), brown])
-array.append(["NONE", 7, "TA", [0, 0], (3, 11), (440,20), green]),
-array.append(["NONE", 8, "TC", [0, 0], (3), (440,140), green])
-array.append(["NONE", 9, "CT", [0, 0], (14), (370,380), brown])
-array.append(["NONE", 10, "AT", [0, 0], (6, 14), (370,500), brown])
-array.append(["NONE", 11, "TA", [0, 0], (7, 15), (600,80), green])
-array.append(["NONE", 12, "C", [0], (16), (630,200), pink])
-array.append(["NONE", 13, "C", [0], (16), (630,320), pink])
-array.append(["NONE", 14, "ACT", [0, 0, 0], (9, 10, 17), (530,440), brown])
-array.append(["NONE", 15, "AT", [0, 0], (11, 16), (760,140), pink])
-array.append(["RED", 16, "ACT", [0, 0, 0], (12, 13, 15, 17), (725,260), pink])
-array.append(["NONE", 17, "AT", [0, 0], (14, 16), (760,380), pink])
+#KEY:			OWNER		NUM TYPE 	CARDS 		ADJACENT 			LOCATION 	COLOUR
+array.append([	"NONE", 	0, 	"TA",	[0, 0], 	(1, 3), 			(50,140), 	cyan	])
+array.append([	"BLUE", 	1, 	"TCA", 	[0, 0, 0],	(0, 2, 4, 5),		(15,260), 	cyan	])
+array.append([	"NONE", 	2, 	"TA", 	[0, 0], 	(1, 6), 			(50,380), 	cyan	])
+array.append([	"NONE", 	3, 	"TCA", 	[0, 0, 0], 	(0, 7, 8), 			(210,80), 	green	])
+array.append([	"NONE", 	4, 	"C", 	[0], 		(1), 				(250,200), 	cyan	])
+array.append([	"NONE", 	5, 	"C", 	[0], 		(1),				(250,320), 	cyan	])
+array.append([	"NONE", 	6, 	"AT", 	[0, 0], 	(2, 10), 			(210,440), 	brown	])
+array.append([	"NONE", 	7, 	"TA", 	[0, 0], 	(3, 11), 			(440,20), 	green	])
+array.append([	"NONE", 	8, 	"TC", 	[0, 0], 	(3), 				(440,140), 	green	])
+array.append([	"NONE", 	9, 	"CT", 	[0, 0], 	(14), 				(370,380), 	brown	])
+array.append([	"NONE", 	10,	"AT", 	[0, 0], 	(6, 14), 			(370,500), 	brown	])
+array.append([	"NONE", 	11,	"TA", 	[0, 0], 	(7, 15), 			(600,80), 	green	])
+array.append([	"NONE", 	12, "C", 	[0], 		(16), 				(630,200),	pink	])
+array.append([	"NONE", 	13, "C", 	[0], 		(16), 				(630,320),	pink	])
+array.append([	"NONE", 	14, "ACT", 	[0, 0, 0], 	(9, 10, 17), 		(530,440), 	brown	])
+array.append([	"NONE", 	15, "AT", 	[0, 0], 	(11, 16), 			(760,140), 	pink	])
+array.append([	"RED", 		16, "ACT", 	[0, 0, 0], 	(12, 13, 15, 17), 	(725,260), 	pink	])
+array.append([	"NONE", 	17, "AT", 	[0, 0], 	(14, 16), 			(760,380), 	pink	])
 
 #Prints the information for group 'number'
 def getInfo(number):
-	return "OWNER:", array[number][OWNER], "  NUMBER:", array[number][NUM], "  TYPE:", array[number][TYPE], "  CARDS:", array[number][CARDS], "  ADJACENT TO:", array[number][ADJACENT], "  LOCATION:", array[number][LOCATION], "  COLOUR:", array[number][COLOUR]
+	return "OWNER:", array[number][OWNER], "  NUM:", array[number][NUM], "  TYPE:", array[number][TYPE], "  CARDS:", array[number][CARDS], "  ADJACENT:", array[number][ADJACENT], "  LOCATION:", array[number][LOCATION], "  COLOUR:", array[number][COLOUR]
 
 #Changes the owner of group 'number' to a new color.
 def changeOwner(number, new):
@@ -153,19 +153,22 @@ while True:
 				if(updates): updates = False
 				else: updates = True
 
+	#Main Drawing process
 	Draw()
 
+	#Calculate which card is hovered over.
 	p = pygame.mouse.get_pos()
-	
 	for position in range(len(array)):
 		if p[0] > array[position][LOCATION][0] and p[0] < (array[position][LOCATION][0] + 70*len(array[position][TYPE])):
 			if p[1] > array[position][LOCATION][1] and p[1] < (array[position][LOCATION][1] + 100):
+				#Draws white border over card when hovered over.
 				pygame.draw.rect(screen, white, (array[position][LOCATION][x],array[position][LOCATION][y],70*len(array[position][TYPE]),100), 5)
 
+				#Info text on bottom of the screen.
 				text = font.render(str(getInfo(position)), 1, white)
 				textpos.x = 5
 				textpos.y = Height-25
 				screen.blit(text, textpos)
 
-
+	#Update screen for user.
 	pygame.display.update()
