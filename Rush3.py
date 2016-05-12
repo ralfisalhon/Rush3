@@ -53,24 +53,24 @@ x,y = 0,1
 turnOwner = "BLUE"
 
 #KEY:			OWNER		NUM TYPE 	CARDS 		ADJACENT 			LOCATION 	COLOUR
-array.append([	"NONE", 	0, 	"TA",	[0, 0], 	(1, 3), 			(50,140), 	cyan	])
-array.append([	"BLUE", 	1, 	"TCA", 	[0, 0, 0],	(0, 2, 4, 5),		(15,260), 	cyan	])
-array.append([	"NONE", 	2, 	"TA", 	[0, 0], 	(1, 6), 			(50,380), 	cyan	])
-array.append([	"NONE", 	3, 	"TCA", 	[0, 0, 0], 	(0, 7, 8), 			(210,80), 	green	])
-array.append([	"NONE", 	4, 	"C", 	[0], 		(1), 				(250,200), 	cyan	])
-array.append([	"NONE", 	5, 	"C", 	[0], 		(1),				(250,320), 	cyan	])
-array.append([	"NONE", 	6, 	"AT", 	[0, 0], 	(2, 10), 			(210,440), 	brown	])
-array.append([	"NONE", 	7, 	"TA", 	[0, 0], 	(3, 11), 			(440,20), 	green	])
-array.append([	"NONE", 	8, 	"TC", 	[0, 0], 	(3), 				(440,140), 	green	])
-array.append([	"NONE", 	9, 	"CT", 	[0, 0], 	(14), 				(370,380), 	brown	])
-array.append([	"NONE", 	10,	"AT", 	[0, 0], 	(6, 14), 			(370,500), 	brown	])
-array.append([	"NONE", 	11,	"TA", 	[0, 0], 	(7, 15), 			(600,80), 	green	])
-array.append([	"NONE", 	12, "C", 	[0], 		(16), 				(630,200),	pink	])
-array.append([	"NONE", 	13, "C", 	[0], 		(16), 				(630,320),	pink	])
-array.append([	"NONE", 	14, "ACT", 	[0, 0, 0], 	(9, 10, 17), 		(530,440), 	brown	])
-array.append([	"NONE", 	15, "AT", 	[0, 0], 	(11, 16), 			(760,140), 	pink	])
-array.append([	"RED", 		16, "ACT", 	[0, 0, 0], 	(12, 13, 15, 17), 	(725,260), 	pink	])
-array.append([	"NONE", 	17, "AT", 	[0, 0], 	(14, 16), 			(760,380), 	pink	])
+array.append([	"NONE", 	0, 	"TA",	[0, 0], 	[1, 3], 			(50,140), 	cyan	])
+array.append([	"BLUE", 	1, 	"TCA", 	[0, 0, 0],	[0, 2, 4, 5],		(15,260), 	cyan	])
+array.append([	"NONE", 	2, 	"TA", 	[0, 0], 	[1, 6], 			(50,380), 	cyan	])
+array.append([	"NONE", 	3, 	"TCA", 	[0, 0, 0], 	[0, 7, 8], 			(210,80), 	green	])
+array.append([	"NONE", 	4, 	"C", 	[0], 		[1], 				(250,200), 	cyan	])
+array.append([	"NONE", 	5, 	"C", 	[0], 		[1],				(250,320), 	cyan	])
+array.append([	"NONE", 	6, 	"AT", 	[0, 0], 	[2, 10], 			(210,440), 	brown	])
+array.append([	"NONE", 	7, 	"TA", 	[0, 0], 	[3, 11], 			(440,20), 	green	])
+array.append([	"NONE", 	8, 	"TC", 	[0, 0], 	[3], 				(440,140), 	green	])
+array.append([	"NONE", 	9, 	"CT", 	[0, 0], 	[14], 				(370,380), 	brown	])
+array.append([	"NONE", 	10,	"AT", 	[0, 0], 	[6, 14], 			(370,500), 	brown	])
+array.append([	"NONE", 	11,	"TA", 	[0, 0], 	[7, 15], 			(600,80), 	green	])
+array.append([	"NONE", 	12, "C", 	[0], 		[16], 				(630,200),	pink	])
+array.append([	"NONE", 	13, "C", 	[0], 		[16], 				(630,320),	pink	])
+array.append([	"NONE", 	14, "ACT", 	[0, 0, 0], 	[9, 10, 17], 		(530,440), 	brown	])
+array.append([	"NONE", 	15, "AT", 	[0, 0], 	[11, 16], 			(760,140), 	pink	])
+array.append([	"RED", 		16, "ACT", 	[0, 0, 0], 	[12, 13, 15, 17], 	(725,260), 	pink	])
+array.append([	"NONE", 	17, "AT", 	[0, 0], 	[14, 16], 			(760,380), 	pink	])
 
 #Prints the information for group 'number'
 def getInfo(number):
@@ -95,15 +95,18 @@ def attackTo(attacking, defending):
 
 def DrawLines():
 	for item in range(len(array)):
-		try:
-			for adjacent in range(len(array[item][ADJACENT])):
-				end = array[item][ADJACENT][adjacent]
-				startloc = (array[item][LOCATION][x]+35,array[item][LOCATION][y]+50)
-				endloc = (array[end][LOCATION][x]+35,array[end][LOCATION][y]+50)
-				pygame.draw.line(screen, black, startloc, endloc, 15)
-				if(updates): pygame.display.update()
-		except: #print "Problem while printing line", item
-			pass
+		for adjacent in range(len(array[item][ADJACENT])):
+			end = array[item][ADJACENT][adjacent]
+			startloc = (array[item][LOCATION][x]+35,array[item][LOCATION][y]+50)
+			endloc = (array[end][LOCATION][x]+35,array[end][LOCATION][y]+50)
+			pygame.draw.line(screen, black, startloc, endloc, 15)
+			if(updates): pygame.display.update()
+
+def DrawAdjacent(position):
+	print position
+	for adjacent in range(len(array[position][ADJACENT])):
+		current = array[position][ADJACENT][adjacent]
+		pygame.draw.rect(screen, yellow, (array[current][LOCATION][x],array[current][LOCATION][y],70*len(array[current][TYPE]),100), 5)
 
 #Draws screen for next update
 def Draw():
@@ -169,6 +172,8 @@ while True:
 				textpos.x = 5
 				textpos.y = Height-25
 				screen.blit(text, textpos)
+
+				DrawAdjacent(position)
 
 	#Update screen for user.
 	pygame.display.update()
